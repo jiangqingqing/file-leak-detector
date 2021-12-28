@@ -158,8 +158,8 @@ public class AgentMain {
 
     private static void runHttpServer(int port) throws IOException {
         final ServerSocket ss = new ServerSocket();
-        ss.bind(new InetSocketAddress("localhost", port));
-        System.err.println("Serving file leak stats on http://localhost:"+ss.getLocalPort()+"/ for stats");
+        ss.bind(new InetSocketAddress(port));
+        System.err.println("Serving file leak stats on port:"+ss.getLocalPort()+"/ for stats");
         final ExecutorService es = Executors.newCachedThreadPool(new ThreadFactory() {
             public Thread newThread(Runnable r) {
                 Thread t = new Thread(r);
